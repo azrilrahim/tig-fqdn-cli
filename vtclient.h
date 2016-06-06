@@ -81,10 +81,6 @@ public:
     explicit VtClient(QObject *parent = 0);
     ~VtClient();
 
-    bool HTTPMODE;
-    QString inputFile;
-    QString streamInput;
-
     int mainEntry(int argc, char *argv[]);
     bool updateDbase();
 
@@ -93,6 +89,11 @@ public:
 
 
 private:
+    bool HTTPMODE;
+    QString inputFile;
+    QString outputFile;
+    QString streamInput;
+
     quint64 getNewPrimaryKey();
     QByteArray getData;
     QByteArray postData;

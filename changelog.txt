@@ -1,0 +1,30 @@
+/*
+#-----------------------------------#
+#                                   #
+# Copyright (C) 2016 Azril Rahim    #
+# Infoblox Malaysia                 #
+# arahim@infoblox.com               #
+#                                   #
+#-----------------------------------#
+*/
+
+
+JUNE 3rd 2016
+    -   Add missing tig.db into repository
+
+    -   Add new outfile feature. Results can be saved into a file
+        instead to stdio. function of=?<target_file_name> allows
+        user to save the output to designated file.
+
+    -   Correct the logic error input where input can only be
+        either fqdn=? or if=?. Any non recognized command inputs
+        will be rejected. Previously command line are not validated
+        and has caused of logic error that leads to segmented error
+
+    -   Removed a few debug message that pop outs during operations.
+
+    -   Fix open db. Previously open db is executed on loading.
+        Now open db is executed after user key in all arguments
+        This is to make way to variable db input location that will
+        implemented soon.
+

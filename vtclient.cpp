@@ -18,8 +18,9 @@ VtClient::VtClient(QObject *parent) : QObject(parent)
     this->myAPIKEY = "44123e8b4ac6b27f5b45bf440e93c507fa3183dabfbf0682680f4ad9a366e0f6";
     this->dbLoc = "/opt/tig.db";
 
-    this->myDB.openDB(this->dbLoc);
     this->HTTPMODE = false;
+    this->inputFile.clear();
+    this->outputFile.clear();
 }
 
 VtClient::~VtClient()
@@ -42,6 +43,10 @@ int VtClient::mainEntry(int argc, char *argv[])
 
     this->streamInput.clear();
 
+    if (!this->myDB.openDB(this->dbLoc)){
+            printf("Unable to locate and open tig database in /opt/tig.db. Exit\n");
+            return 0;
+    }
 
     //process input argv
     for (int i=1; i< argc;i++)
@@ -51,6 +56,12 @@ int VtClient::mainEntry(int argc, char *argv[])
         //http mode
         if (in.contains("http?=")){
             this->HTTPMODE = true;
+            continue;
+        }
+
+        if (in.contains("of?=")){
+            //output to file instead of stdio
+            this->outputFile = in.replace("of?=","").trimmed();
             continue;
         }
 
@@ -690,6 +701,18 @@ bool VtClient::getReport(bool update)
     QStringList domains;
     QString tmp;
     output.clear();
+    QFile outputF;
+
+    //open file for output
+    if (!this->outputFile.isEmpty())
+    {
+        outputF.setFileName(this->outputFile);
+        if(!outputF.open(QIODevice::Append | QIODevice::Text))
+        {
+            printf("Error opening outpu file %s\n",this->outputFile.toStdString().c_str());
+            return false;
+        }
+    }
 
         domains = this->streamInput.split(",");
         //output.append("num of domains: " + QString::number(domains.size()) + "::" + this->streamInput);
@@ -703,9 +726,8 @@ bool VtClient::getReport(bool update)
             if (!tmp.isEmpty()){
 
                 if (update){
-                    qDebug() << "Updating domain" << tmp << this->deleteDomainDB(tmp);
+                    this->deleteDomainDB(tmp);
                 }
-                qDebug() << "processing:" << tmp;
                 output.append(this->getDomainReportGroupMalwareName(tmp));
             }
         }
@@ -732,6 +754,15 @@ bool VtClient::getReport(bool update)
 
 
     //print output
+    if (!this->outputFile.isEmpty()){
+
+        //save it to file;
+        outputF.write(output.toStdString().c_str());
+        outputF.close();
+        return true;
+    }
+
+    //else.. cout to stdio
     printf("%s",output.toStdString().c_str());
     return true;
 }

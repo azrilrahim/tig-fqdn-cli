@@ -71,6 +71,14 @@ INSTALLATION
 
 
 
+COMMAND LINE ARGUMENTS
+----------------------
+    fqdn?=: <fqdn or several fqdn separated by comma>
+    if?=:   <input of fqdn in csv file format>
+    of?=:   <output to file of the results of queried fqdn>
+    update: force update
+
+
 CONFIGURATION
 -------------
 
@@ -80,14 +88,19 @@ CONFIGURATION
     2.  multiple FQDN queries (each fqdn is separated by comma ,)
         %> ./TIG fqdn?=www.test.com,www.test2.com,..
 
-    3. Multiple FQDN queries via CSV file
+    3.  Multiple FQDN queries via CSV file
         %> ./TIG if?=csv.file.txt
 
-    4. Force update
+    4.  Saving result to a file
+        %> ./TIG fqdn?=www.test.com,www.test2.com,.. of=?<targetfile>
+
+    5. Force update
         TIG is equipped with auto update when verifying FQDN.
         However its also allow force update. Only 1 single FQDN
         can be forced in a call.
         %> ./TIG fqdn=?www.test.com update
+
+
 
 
 OUTPUT

@@ -28,4 +28,6 @@ HEADERS += \
     vtclient.h
 
 DISTFILES += \
-    readme.txt
+    readme.txt \
+    changelog.txt \
+    tig.db
