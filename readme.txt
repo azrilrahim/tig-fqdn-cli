@@ -2,9 +2,11 @@
 #-----------------------------------#
 #                                   #
 # Copyright (C) 2016 Azril Rahim    #
-# Infoblox Malaysia                 #
-# arahim@infoblox.com               #
+# azrilazam@gmail.com               #
 #                                   #
+# This code is under GNU Open Source#
+# license. You are free to modified #
+# it as long the where credits due  #
 #-----------------------------------#
 */
 
@@ -44,20 +46,24 @@ INSTALLATION
     2.  Extract all the files in the desired working directory.
         e.g: /home/user/project/TIG
 
-    3.  The create a proper make file for compilation, you need to access
+    3.  VIRUS TOTAL access requires a special API KEY. You need to register to
+        qualified for it. Once obtained, the key need to insert in vtclient.cpp
+        under the class constructor.
+
+    4.  The create a proper make file for compilation, you need to access
         to the qmake command that comes with Qt framework. qmake command
         must be issued inside the TIG work directory.
 
         %> cd /home/user/project/TIG
         %> /<qt install dir>/bin/qmake
 
-    4.  After the qmake process is finish, you can called the make command
+    5.  After the qmake process is finish, you can called the make command
         to complete the compilation
 
         %> cd /home/user/project/TIG
         %> make
 
-    5. After a successful compilation, a TIG file will be created.
+    6. After a successful compilation, a TIG file will be created.
        To invoke TIG application:
 
         %> cd /home/user/project/TIG

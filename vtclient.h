@@ -2,9 +2,11 @@
 #-----------------------------------#
 #                                   #
 # Copyright (C) 2016 Azril Rahim    #
-# Infoblox Malaysia                 #
-# arahim@infoblox.com               #
+# azrilazam@gmail.com               #
 #                                   #
+# This code is under GNU Open Source#
+# license. You are free to modified #
+# it as long the where credits due  #
 #-----------------------------------#
 */
 

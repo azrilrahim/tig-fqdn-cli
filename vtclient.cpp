@@ -2,9 +2,11 @@
 #-----------------------------------#
 #                                   #
 # Copyright (C) 2016 Azril Rahim    #
-# Infoblox Malaysia                 #
-# arahim@infoblox.com               #
+# azrilazam@gmail.com               #
 #                                   #
+# This code is under GNU Open Source#
+# license. You are free to modified #
+# it as long the where credits due  #
 #-----------------------------------#
 */
 
@@ -14,6 +16,7 @@
 
 VtClient::VtClient(QObject *parent) : QObject(parent)
 {
+    //Please insert the Free Virus Total Key here.
     //this->myAPIKEY = "a5af48a69c7dca19a2a5767101177dd1349b51e9b4c1899dc042eb04e594b0e5";
     this->myAPIKEY = "44123e8b4ac6b27f5b45bf440e93c507fa3183dabfbf0682680f4ad9a366e0f6";
     this->dbLoc = "/opt/tig.db";

@@ -2,9 +2,11 @@
 #-----------------------------------#
 #                                   #
 # Copyright (C) 2016 Azril Rahim    #
-# Infoblox Malaysia                 #
-# arahim@infoblox.com               #
+# azrilazam@gmail.com               #
 #                                   #
+# This code is under GNU Open Source#
+# license. You are free to modified #
+# it as long the where credits due  #
 #-----------------------------------#
 */
 
@@ -28,3 +30,7 @@ JUNE 3rd 2016
         This is to make way to variable db input location that will
         implemented soon.
 
+
+AUGUST 11th 2016
+    -   Add info on virus total Key.
+    -   Add/Change GNU open source License info.
